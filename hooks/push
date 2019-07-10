@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Override Docker Cloud push hook to push a tag per target
+
+docker push tedmiston/automated-builds-test:latest-stage-one
+docker push tedmiston/automated-builds-test:latest-stage-two
