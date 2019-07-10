@@ -1,6 +1,6 @@
 export DOCKER_BUILDKIT=1
 
-IMAGE := $(IMAGE_NAME)
+IMAGE := $(DOCKER_REPO)
 
 .PHONY: _build
 _build:
