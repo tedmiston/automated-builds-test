@@ -20,7 +20,11 @@ build-base:
 
 .PHONY: clean
 clean:
-	rm one/Dockerfile two/Dockerfile
+	rm \
+		one/Dockerfile \
+		one/Makefile \
+		two/Dockerfile \
+		two/Makefile
 
 include */Makefile
 
