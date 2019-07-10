@@ -10,6 +10,10 @@ _build:
 _run:
 	docker run --rm -it $(IMAGE):$(tag)
 
+.PHONY: _push
+_push:
+	docker push $(name):$(tag)
+
 include *.mk
 
 .PHONY: build-all
@@ -23,3 +27,7 @@ ls-all:
 .PHONY: run-all
 run-all:
 	make run-one run-two
+
+.PHONY: push-all
+push-all:
+	make push-one push-two

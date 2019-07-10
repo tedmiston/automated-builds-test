@@ -8,3 +8,7 @@ build-two:
 .PHONY: run-two
 run-two:
 	make tag=$(STAGE_TWO_TAG) _run
+
+.PHONY: push-two
+push-two:
+	make name=$(IMAGE) tag=$(STAGE_TWO_TAG) _push
