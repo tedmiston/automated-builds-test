@@ -5,5 +5,5 @@
 # only if outside of docker hub autobuild
 # export DOCKER_REPO=tedmiston/automated-builds-test
 
-source ./hooks/pre_build_one
-source ./hooks/pre_build_two
+./hooks/pre_build_one
+./hooks/pre_build_two
