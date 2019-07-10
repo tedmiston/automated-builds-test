@@ -1,5 +1,6 @@
 #!/bin/bash
 
-pwd
-ls
-docker build --help
+# Override Docker Cloud build hook to build multiple target-tag pairs
+
+make build-all
+docker image ls tedmiston/automated-builds-test
