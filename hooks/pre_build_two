@@ -1,0 +1,18 @@
+#!/bin/bash
+
+export STAGE_TWO_TARGET=stage-two
+
+sed \
+    -e 's@$DOCKER_REPO@'"$DOCKER_REPO"'@g' \
+    -e 's@$STAGE_TWO_TARGET@'"$STAGE_TWO_TARGET"'@g' \
+    two/Dockerfile.in > two/Dockerfile
+
+sed \
+    -e 's@$STAGE_TWO_TARGET@'"$STAGE_TWO_TARGET"'@g' \
+    two/Makefile.in > two/Makefile
+
+unset STAGE_TWO_TARGET
+
+# verify
+cat two/Dockerfile
+cat two/Makefile
