@@ -1,0 +1,3 @@
+FROM $IMAGE_NAME:base AS $STAGE_TWO_TARGET
+RUN echo hey stage 2
+CMD echo cmd stage 2

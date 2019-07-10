@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Pre-build Dockerfiles from env vars to be DRY
+
+# only if outside of docker hub autobuild
+# export IMAGE_NAME=tedmiston/automated-builds-test
+
+export STAGE_ONE_TARGET=stage-one
+export STAGE_TWO_TARGET=stage-two
+
+sed \
+    -e 's@$IMAGE_NAME@'"$IMAGE_NAME"'@g' \
+    -e 's@$STAGE_ONE_TARGET@'"$STAGE_ONE_TARGET"'@g' \
+    one/Dockerfile.in > one/Dockerfile
+
+sed \
+    -e 's@$IMAGE_NAME@'"$IMAGE_NAME"'@g' \
+    -e 's@$STAGE_TWO_TARGET@'"$STAGE_TWO_TARGET"'@g' \
+    two/Dockerfile.in > two/Dockerfile
+
+unset STAGE_ONE_TARGET
+unset STAGE_TWO_TARGET
+
+# verify
+cat one/Dockerfile
+cat two/Dockerfile

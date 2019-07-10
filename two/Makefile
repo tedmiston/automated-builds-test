@@ -1,4 +1,3 @@
-STAGE_TWO_TARGET := stage-two
 STAGE_TWO_TAG := latest-$(STAGE_TWO_TARGET)
 
 .PHONY: build-two

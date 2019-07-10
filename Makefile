@@ -1,6 +1,6 @@
 export DOCKER_BUILDKIT=1
 
-IMAGE := tedmiston/automated-builds-test
+IMAGE := $(IMAGE_NAME)
 
 .PHONY: _build
 _build:
@@ -17,6 +17,10 @@ _push:
 .PHONY: build-base
 build-base:
 	make file=Dockerfile tag=base _build
+
+.PHONY: clean
+clean:
+	rm one/Dockerfile two/Dockerfile
 
 include */Makefile
 
