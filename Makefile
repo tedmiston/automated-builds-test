@@ -4,7 +4,7 @@ IMAGE := tedmiston/automated-builds-test
 
 .PHONY: _build
 _build:
-	docker build --target $(target) --tag $(IMAGE):$(tag) .
+	docker build --file $(file) --tag $(IMAGE):$(tag) .
 
 .PHONY: _run
 _run:
@@ -14,7 +14,11 @@ _run:
 _push:
 	docker push $(name):$(tag)
 
-include *.mk
+.PHONY: build-base
+build-base:
+	make file=Dockerfile tag=base _build
+
+include */Makefile
 
 .PHONY: build-all
 build-all:

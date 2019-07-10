@@ -2,8 +2,8 @@ STAGE_TWO_TARGET := stage-two
 STAGE_TWO_TAG := latest-$(STAGE_TWO_TARGET)
 
 .PHONY: build-two
-build-two:
-	make target=$(STAGE_TWO_TARGET) tag=$(STAGE_TWO_TAG) _build
+build-two: build-base
+	make file=two/Dockerfile tag=$(STAGE_TWO_TAG) _build
 
 .PHONY: run-two
 run-two:
