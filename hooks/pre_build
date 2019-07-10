@@ -14,13 +14,23 @@ sed \
     one/Dockerfile.in > one/Dockerfile
 
 sed \
+    -e 's@$STAGE_ONE_TARGET@'"$STAGE_ONE_TARGET"'@g' \
+    one/Makefile.in > one/Makefile
+
+sed \
     -e 's@$DOCKER_REPO@'"$DOCKER_REPO"'@g' \
     -e 's@$STAGE_TWO_TARGET@'"$STAGE_TWO_TARGET"'@g' \
     two/Dockerfile.in > two/Dockerfile
+
+sed \
+    -e 's@$STAGE_TWO_TARGET@'"$STAGE_TWO_TARGET"'@g' \
+    two/Makefile.in > two/Makefile
 
 unset STAGE_ONE_TARGET
 unset STAGE_TWO_TARGET
 
 # verify
 cat one/Dockerfile
+cat one/Makefile
 cat two/Dockerfile
+cat two/Makefile
