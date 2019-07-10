@@ -16,6 +16,10 @@ include *.mk
 build-all:
 	make build-one build-two
 
+.PHONY: ls-all
+ls-all:
+	docker image ls $(IMAGE)
+
 .PHONY: run-all
 run-all:
 	make run-one run-two
