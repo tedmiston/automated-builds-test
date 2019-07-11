@@ -40,6 +40,10 @@ ls-all:
 run-all:
 	make run-one run-two
 
+.PHONY: test-all
+test-all:
+	echo testing all! && ./run_tests.sh
+
 .PHONY: push-all
 push-all:
 	make push-one push-two
